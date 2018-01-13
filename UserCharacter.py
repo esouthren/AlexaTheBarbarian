@@ -10,3 +10,9 @@ new_character.race = input("What is your Race?")
 new_character.background = input("What is your Background?")
 new_character.alignment = input("What is your Alignment?")
 print(new_character.print_character_sheet())
+
+
+
+
+
+

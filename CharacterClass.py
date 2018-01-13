@@ -1,12 +1,12 @@
 class CharacterClass:
     def __init__(self):
-        self.name_character = ""
-        self.name_player = ""
-        self.sex = ""
-        self.race = "" #assign speed, size
-        self.class_type = "" #define hit die
-        self.background = ""
-        self.alignment = ""
+        self.name_character = "Lea O Crixley"
+        self.name_player = "Eilidh Southren"
+        self.sex = "F"
+        self.race = "Elf" #assign speed, size
+        self.class_type = "Mage" #define hit die
+        self.background = "This is a long text string yadda yadda yadda"
+        self.alignment = "Good"
         self.eyes = ""
         self.height = ""
         self.weight = ""
@@ -14,6 +14,7 @@ class CharacterClass:
         self.skin = ""
         self.hair = ""
         self.age = ""
+
 
 
     def print_character_sheet(self):

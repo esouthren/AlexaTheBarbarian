@@ -1,5 +1,5 @@
 # -*- encoding: UTF-8 -*-
-import sys, os
+
 ''' pypdftk
 
 Python module to drive the awesome pdftk binary.
@@ -7,26 +7,22 @@ See http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/
 
 '''
 
+import logging
 import os
 import subprocess
 import tempfile
 import shutil
+import itertools
+
+log = logging.getLogger(__name__)
 
 if os.getenv('PDFTK_PATH'):
     PDFTK_PATH = os.getenv('PDFTK_PATH')
 else:
-    PDFTK_PATH = os.getcwd().join(' ')
+    PDFTK_PATH = '/usr/bin/pdftk'
+    if not os.path.isfile(PDFTK_PATH):
+        PDFTK_PATH = 'pdftk'
 
-def dump_data_fields(pdf_path):
-    '''
-        Return list of dicts of all fields in a PDF.
-    '''
-    cmd = "%s %s dump_data_fields" % (PDFTK_PATH, pdf_path)
-    field_data = map(lambda x: x.split(': ', 1), run_command(cmd, True))
-
-    fields = [list(group) for k, group in itertools.groupby(field_data, lambda x: len(x) == 1) if not k]
-
-    return map(dict, fields)
 
 def check_output(*popenargs, **kwargs):
     if 'stdout' in kwargs:
@@ -45,7 +41,12 @@ def check_output(*popenargs, **kwargs):
 def run_command(command, shell=False):
     ''' run a system command and yield output '''
     p = check_output(command, shell=shell)
-    return p.split(b'\n')
+    return p.split('\n')
+
+try:
+    run_command([PDFTK_PATH])
+except OSError:
+    logging.warning('pdftk test call failed (PDFTK_PATH=%r).', PDFTK_PATH)
 
 
 def get_num_pages(pdf_path):
@@ -63,6 +64,7 @@ def fill_form(pdf_path, datas={}, out_file=None, flatten=True):
     '''
     cleanOnFail = False
     tmp_fdf = gen_xfdf(datas)
+    handle = None
     if not out_file:
         cleanOnFail = True
         handle, out_file = tempfile.mkstemp()
@@ -76,8 +78,21 @@ def fill_form(pdf_path, datas={}, out_file=None, flatten=True):
         if cleanOnFail:
             os.remove(tmp_fdf)
         raise
+    finally:
+        if handle:
+            os.close(handle)
     return out_file
 
+def dump_data_fields(pdf_path):
+    '''
+        Return list of dicts of all fields in a PDF.
+    '''
+    cmd = "%s %s dump_data_fields" % (PDFTK_PATH, pdf_path)
+    field_data = map(lambda x: x.split(': ', 1), run_command(cmd, True))
+
+    fields = [list(group) for k, group in itertools.groupby(field_data, lambda x: len(x) == 1) if not k]
+
+    return map(dict, fields)
 
 def concat(files, out_file=None):
     '''
@@ -135,11 +150,97 @@ def gen_xfdf(datas={}):
         </fields>
     </xfdf>""" % "\n".join(fields)
     handle, out_file = tempfile.mkstemp()
-    f = open(out_file, 'wb')
-    #f.write(bytes(tpl, 'UTF-8'))
-    f.write(tpl.encode())
-    print("file written!")
-    #print(os.path.abspath(__file__))
+    f = open(out_file, 'w')
+    f.write(tpl.encode('UTF-8'))
     f.close()
     return out_file
 
+def replace_page(pdf_path, page_number, pdf_to_insert_path):
+    '''
+    Replace a page in a PDF (pdf_path) by the PDF pointed by pdf_to_insert_path.
+    page_number is the number of the page in pdf_path to be replaced. It is 1-based.
+    '''
+    A = 'A=' + pdf_path
+    B = 'B=' + pdf_to_insert_path
+    lower_bound = 'A1-' + str(page_number - 1)
+    upper_bound = 'A' + str(page_number + 1) + '-end'
+    output_temp = tempfile.mktemp(suffix='.pdf')
+    args = (PDFTK_PATH, A, B, 'cat', lower_bound, 'B', upper_bound, 'output', output_temp)
+    run_command(args)
+    shutil.copy(output_temp, pdf_path)
+    os.remove(output_temp)
+
+def stamp(pdf_path, stamp_pdf_path, output_pdf_path=None):
+    '''
+    Applies a stamp (from stamp_pdf_path) to the PDF file in pdf_path. Useful for watermark purposes.
+    If not output_pdf_path is provided, it returns a temporary file with the result PDF.
+    '''
+    output = output_pdf_path or tempfile.mktemp(suffix='.pdf')
+    args = [PDFTK_PATH, pdf_path, 'multistamp', stamp_pdf_path, 'output', output]
+    run_command(args)
+    return output
+
+def pdftk_cmd_util(pdf_path, action="compress",out_file=None, flatten=True):
+    '''
+    :type action: should valid action, in string format. Eg: "uncompress"
+    :param pdf_path: input PDF file
+    :param out_file: (default=auto) : output PDF path. will use tempfile if not provided
+    :param flatten: (default=True) : flatten the final PDF
+    :return: name of the output file.
+    '''
+    actions = ["compress", "uncompress"]
+    assert action in actions, "Unknown action. Failed to perform given action '%s'." % action
+
+    handle = None
+    cleanOnFail = False
+    if not out_file:
+        cleanOnFail = True
+        handle, out_file = tempfile.mkstemp()
+
+    cmd = "%s %s output %s %s" % (PDFTK_PATH, pdf_path, out_file, action)
+
+    if flatten:
+        cmd += ' flatten'
+    try:
+        run_command(cmd, True)
+    except:
+        if cleanOnFail:
+            os.remove(out_file)
+        raise
+    finally:
+        if handle:
+            os.close(handle)
+    return out_file
+
+
+
+def compress(pdf_path, out_file=None, flatten=True):
+    '''
+    These are only useful when you want to edit PDF code in a text
+    editor like vim or emacs.  Remove PDF page stream compression by
+    applying the uncompress filter. Use the compress filter to
+    restore compression.
+
+    :param pdf_path: input PDF file
+    :param out_file: (default=auto) : output PDF path. will use tempfile if not provided
+    :param flatten: (default=True) : flatten the final PDF
+    :return: name of the output file.
+    '''
+
+    return pdftk_cmd_util(pdf_path, "compress", out_file, flatten)
+
+
+def uncompress(pdf_path, out_file=None, flatten=True):
+    '''
+    These are only useful when you want to edit PDF code in a text
+    editor like vim or emacs.  Remove PDF page stream compression by
+    applying the uncompress filter. Use the compress filter to
+    restore compression.
+
+    :param pdf_path: input PDF file
+    :param out_file: (default=auto) : output PDF path. will use tempfile if not provided
+    :param flatten: (default=True) : flatten the final PDF
+    :return: name of the output file.
+    '''
+
+    return pdftk_cmd_util(pdf_path, "uncompress", out_file, flatten)
