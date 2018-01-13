@@ -7,7 +7,14 @@ def get_data_from_url(url):
     data = webURL.read()
     encoding = webURL.info().get_content_charset('utf-8')
     return json.loads(data.decode(encoding))
-'''
+
+def find_item(search_term, items_array, term):
+    for i in items_array:
+        if i[term] == search_term:
+            return i
+    return -1
+
+
 classes_data = get_data_from_url("http://www.dnd5eapi.co/api/classes/")
 classes_count = classes_data['count']
 
@@ -19,13 +26,13 @@ for c in classes:
     print(c['name'])
 
 print("")
-barbarian = classes[0]
+barbarian = find_item("Barbarian", classes, 'name')
 for key, value in barbarian.items():
     print("{} : {}".format(key, value))
 
 
 print("\nhit dice of barbarian: {} ".format(classes[0]['hit_die']))
-'''
+
 
 races_data = get_data_from_url("http://www.dnd5eapi.co/api/races/")
 races_count = races_data['count']
@@ -37,6 +44,7 @@ for c in races:
     print(c['name'])
 
 print("")
-barbarian = races[0]
-for key, value in barbarian.items():
+dwarf = races[0]
+my_character = find_item("Dwarf", races, 'name')
+for key, value in my_character.items():
     print("{} : {}".format(key, value))
