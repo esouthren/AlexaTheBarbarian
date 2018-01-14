@@ -27,6 +27,7 @@ API = API()
 API.get_classes()
 API.get_races()
 API.get_skills()
+from gui import *
 
 for c in API.classes:
     hit_die = c['hit_die']
@@ -114,6 +115,5 @@ for key, value in alignment.items():
 
 #print character sheet
 print(new_character.print_character_sheet())
-
 
 run(new_character)

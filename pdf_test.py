@@ -19,7 +19,7 @@ def get_overlay_canvas(c) -> io.BytesIO:
 
     DEFAULT = 12
 
-    char_name = [55, 715]
+    char_name = [55, 713]
     char_class = [270, 730]
     race = [270, 705]
     align = [380, 705]
@@ -41,27 +41,27 @@ def get_overlay_canvas(c) -> io.BytesIO:
     dex_mod = [55, 523]
     con_mod = [55, 453]
     int_mod = [55, 380]
-    wis_mod = [55, 305]
+    wis_mod = [55, 310]
     cha_mod = [55, 235]
 
-    acr_mod = [118, 465]
-    an_mod = [118, 450]
-    arc_mod = [118, 436]
-    ath_mod = [118, 421]
-    dec_mod = [118, 409]
-    hist_mod = [118, 395]
-    ins_mod = [118, 381]
-    in_mod = [118, 367]
-    inv_mod = [118, 355]
-    med_mod = [118, 340]
-    nat_mod = [118, 327]
-    perc_mod = [118, 315]
-    perf_mod = [118, 301]
-    pers_mod = [118, 289]
-    rel_mod = [118, 274]
-    sl_mod = [118, 260]
-    ste_mod = [118, 245]
-    sur_mod = [118, 232]
+    acr_mod = [114, 465]
+    an_mod = [114, 450]
+    arc_mod = [114, 436]
+    ath_mod = [114, 421]
+    dec_mod = [114, 409]
+    hist_mod = [114, 395]
+    ins_mod = [114, 381]
+    in_mod = [114, 367]
+    inv_mod = [114, 355]
+    med_mod = [114, 340]
+    nat_mod = [114, 327]
+    perc_mod = [114, 315]
+    perf_mod = [114, 301]
+    pers_mod = [114, 289]
+    rel_mod = [114, 274]
+    sl_mod = [114, 260]
+    ste_mod = [114, 245]
+    sur_mod = [114, 232]
 
     s_throw = [118, 576]
     d_throw = [118, 563]
@@ -78,8 +78,9 @@ def get_overlay_canvas(c) -> io.BytesIO:
     data = io.BytesIO()
     pdf = canvas.Canvas(data)
     pdf.setFontSize(25)
+    pdf.setFont("Times-BoldItalic", 25)
     pdf.drawString(x=char_name[0], y=char_name[1], text=c.name_character)
-    pdf.setFontSize(DEFAULT)
+    pdf.setFont("Courier", DEFAULT)
     pdf.drawString(x=char_class[0], y=char_class[1], text=c.class_type+" 1")
     pdf.drawString(x=race[0], y=race[1], text=c.race)
     pdf.drawString(x=align[0], y=align[1], text=c.alignment)
@@ -125,6 +126,7 @@ def get_overlay_canvas(c) -> io.BytesIO:
     pdf.drawString(x=sl_mod[0], y=sl_mod[1], text=str(c.skills_mod[15]))
     pdf.drawString(x=ste_mod[0], y=ste_mod[1], text=str(c.skills_mod[16]))
     pdf.drawString(x=sur_mod[0], y=sur_mod[1], text=str(c.skills_mod[17]))
+
     pdf.drawString(x=s_throw[0], y=s_throw[1], text=str(c.stats[0].saving_throw))
     pdf.drawString(x=d_throw[0], y=d_throw[1], text=str(c.stats[1].saving_throw))
     pdf.drawString(x=c_throw[0], y=c_throw[1], text=str(c.stats[2].saving_throw))
@@ -141,6 +143,7 @@ def get_overlay_canvas(c) -> io.BytesIO:
     for i in range(0, 18):
         if c.skills[i] == c.prof1 or c.skills[i] == c.prof2:
             y_value = sk[i]
+
             pdf.drawString(x=x_value, y=y_value, text="X")
 
     pdf.save()
