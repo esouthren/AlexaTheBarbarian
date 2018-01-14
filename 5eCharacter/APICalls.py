@@ -13,7 +13,7 @@ class API():
         self.classes = []
         self.races = []
         self.skills = []
-        self.classes_index = 0
+        self.class_index = 0
         self.equipment = []
 
     def get_classes(self):
@@ -36,7 +36,7 @@ class API():
             self.skills.append(get_data_from_url(skills_data['results'][i]['url']))
 
     def get_equipment(self):
-        equipment_data = "http://www.dnd5eapi.co/api/startingequipment/{}".format(str(self.classes_index))
-        equipment_count = equipment_data['count']
-        for i in range(0, equipment_count):
-            self.equipment().append(get_data_from_url(equipment_data['results'][i]['url']))
+        equipment_data = get_data_from_url("http://www.dnd5eapi.co/api/equipment/")
+        for i in range(0, 200):
+            temp_item = equipment_data['results'][i]['name']
+            self.equipment.append(temp_item)
