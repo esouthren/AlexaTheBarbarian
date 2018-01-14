@@ -1,34 +1,85 @@
+import random
+import json
+import urllib.request
+from pdf_test import *
+
+
+
+class Stat:
+    def __init__(self, name):
+        self.name = name
+        self.modifier = 0
+        self.ability_score = 0
+        self.saving_throw = []
+        self.proficiency_bonus = 2
+
+
 class CharacterClass:
     def __init__(self):
-        self.name_character = "Lea O Crixley"
-        self.name_player = "Eilidh Southren"
-        self.sex = "F"
-        self.race = "Elf" #assign speed, size
-        self.class_type = "Mage" #define hit die
-        self.background = "This is a long text string yadda yadda yadda"
-        self.alignment = "Good"
+        self.name_character = ""
+        self.name_player = ""
+        self.race = "" #assign speed, size
+        self.class_type = "" #define hit die
+        self.background = ""
+        self.alignment = ""
         self.eyes = ""
-        self.height = ""
+        self.size = ""
         self.weight = ""
         self.eyes = ""
         self.skin = ""
         self.hair = ""
         self.age = ""
-
-
+        self.stats = []
+        stat_names = ["STR", "DEX", "CON", "INT", "WIS", "CHA"]
+        for s in stat_names:
+            self.stats.append(Stat(s))
+        self.hit_die = 0
+        self.speed = 0
+        self.size = ""
+        self.prof1 = ""
+        self.prof2 = ""
+        self.hit_point = 0
+        self.skills_mod = []
+        self.ab_bon = []
+        self.skills = []
 
     def print_character_sheet(self):
         output = ""
-        if (self.name_player != ""):
-            output += "Player Name: {}".format(self.name_player)
-        if (self.name_character != ""):
-            output += "\nCharacter Name: {}".format(self.name_character)
-        if (self.race != ""):
-            output += "\nRace: {}".format(self.race)
-        if (self.class_type != ""):
-            output += "\nClass: {}".format(self.class_type)
-        if (self.background != ""):
-            output += "\nBackground: {}".format(self.background)
-        if (self.alignment != ""):
-            output += "\nAlignment: {}".format(self.alignment)
+        output += "Player Name: {}".format(self.name_player)
+        output += "\nCharacter Name: {}".format(self.name_character)
+        output += "\nAge: {}".format(self.age)
+        output += "\nRace: {}".format(self.race)
+        output += "\tSpeed: {} \tSize: {}".format(self.speed, self.size)
+        output += "\nClass: {}".format(self.class_type)
+        output += "\nHit dice: {}".format(self.hit_die)
+        output += "\nMaximum Hit Point: {}".format(self.hit_point)
+        output += "\nBackground: {}".format(self.background)
+        output += "\nAlignment: {}".format(self.alignment)
+        for s in self.stats:
+            output += "\n{}:\t{}\tModifier: {}".format(s.name, s.ability_score, s.modifier)
+        output += "\nSaving Throws:"
+        for s in self.stats:
+            output += "\n\t{}:\t{}".format(s.name, s.saving_throw)
+        output += "\nSkills: {}, {}".format(self.prof1, self.prof2)
         print(output)
+
+    def generate_stats(self):
+        roll = [0, 0, 0, 0]
+        for i in range(len(roll)):
+            roll[i] = random.randint(1, 6)
+
+        min_pos = 0
+        for i in range(1, 3):
+            if roll[i] < roll[min_pos]:
+                min_pos = i
+
+        self.stat = 0
+        for i in range(len(roll)):
+            if i != min_pos:
+                self.stat += roll[i]
+
+        return self.stat
+
+
+
+
