@@ -13,6 +13,13 @@ def run(c):
     save(form, filename='merged.pdf')
     os.startfile('merged.pdf')
 
+    if os.path.isfile('merged2.pdf'):
+        os.remove('merged2.pdf')
+    canvas_data2 = get_overlay_canvas2(c)
+    form2 = merge(canvas_data2, template_path='./char_sheet_canvas2.pdf')
+    save(form2, filename='merged2.pdf')  
+    os.startfile('merged2.pdf')
+
 
 def get_overlay_canvas(c) -> io.BytesIO:
     ##
@@ -26,9 +33,12 @@ def get_overlay_canvas(c) -> io.BytesIO:
     background = [380, 730]
     player_name = [480, 730]
     hit_point = [300, 585]
-    speed = [355, 625]
-    prof_bonus = [100, 608]
+    speed = [355, 630]
+    armor_class = [240, 630]
+    initiative = [300, 630]
+    prof_bonus = [100, 605]
     hit_dice = [260, 465]
+    pass_wisdom = [35, 191]
 
     str_skill = [40, 610]
     dex_skill = [40, 540]
@@ -72,6 +82,10 @@ def get_overlay_canvas(c) -> io.BytesIO:
 
     sav_thr = [576, 563, 550, 537, 525, 512]
     sk = [464,450,436,421,409,395,381,367,355,340,327,315,301,289,274,260,245,232]
+
+    armor = [290, 190]
+    wep1 = [290, 170]
+    wep2 = [290, 150]
     # stats at + 60
     # larger y number = closer to top of page
 
@@ -90,7 +104,13 @@ def get_overlay_canvas(c) -> io.BytesIO:
     pdf.drawString(x=speed[0], y=speed[1], text=str(c.speed))
     pdf.drawString(x=prof_bonus[0], y=prof_bonus[1], text="+2")
     pdf.drawString(x=hit_dice[0], y=hit_dice[1], text="1d"+str(c.hit_die))
-
+    pdf.drawString(x=armor[0], y=armor[1], text=c.armor)
+    pdf.drawString(x=wep1[0], y=wep1[1], text=c.weapon[0])
+    pdf.drawString(x=wep2[0], y=wep2[1], text=c.weapon[1])
+    pdf.drawString(x=armor_class[0], y=armor_class[1], text=str(c.armor_class))
+    pdf.drawString(x=initiative[0], y=initiative[1], text=str(c.stats[1].modifier))
+    x = int(c.stats[1].modifier)+10
+    pdf.drawString(x=pass_wisdom[0], y=pass_wisdom[1], text=str(x))
 
     ### Modifiers ###
     pdf.setFontSize(25)
@@ -149,6 +169,30 @@ def get_overlay_canvas(c) -> io.BytesIO:
     pdf.save()
     data.seek(0)
     return data
+
+
+def get_overlay_canvas2(c) -> io.BytesIO:
+    DEFAULT = 12
+    data = io.BytesIO()
+    pdf = canvas.Canvas(data)
+    pdf.setFontSize(25)
+    pdf.setFont("Times-BoldItalic", 25)
+
+    char_name = [55, 713]
+    age = [270, 730]
+    eyes = [270, 705]
+    skin = [380, 705]
+    height = [380, 730]
+    hair = [480, 705]
+
+    pdf.setFont("Times-BoldItalic", 25)
+    pdf.drawString(x=char_name[0], y=char_name[1], text=c.name_character)
+    pdf.setFont("Courier", DEFAULT)
+    pdf.drawString(x=age[0], y=age[1], text=str(c.age))
+    pdf.drawString(x=eyes[0], y=eyes[1], text=c.eyes)
+    pdf.drawString(x=skin[0], y=skin[1], text=c.skin)
+    pdf.drawString(x=height[0], y=height[1], text=c.size)
+    pdf.drawString(x=hair[0], y=hair[1], text=c.hair)
 
 
 def merge(overlay_canvas: io.BytesIO, template_path: str) -> io.BytesIO:

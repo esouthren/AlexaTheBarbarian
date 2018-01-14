@@ -1,8 +1,4 @@
 import random
-import json
-import urllib.request
-from pdf_test import *
-
 
 
 class Stat:
@@ -10,7 +6,7 @@ class Stat:
         self.name = name
         self.modifier = 0
         self.ability_score = 0
-        self.saving_throw = []
+        self.saving_throw = 0
         self.proficiency_bonus = 2
 
 
@@ -39,9 +35,13 @@ class CharacterClass:
         self.prof1 = ""
         self.prof2 = ""
         self.hit_point = 0
+        self.armor = ""
+        self.weapon = ["", ""]
+        self.armor_class = 0
         self.skills_mod = []
-        self.ab_bon = []
+        self.ab_mod = []
         self.skills = []
+
 
     def print_character_sheet(self):
         output = ""
@@ -55,12 +55,18 @@ class CharacterClass:
         output += "\nMaximum Hit Point: {}".format(self.hit_point)
         output += "\nBackground: {}".format(self.background)
         output += "\nAlignment: {}".format(self.alignment)
+        output += "\nEyes: {}".format(self.eyes)
+        output += "\nHair: {}".format(self.hair)
+        output += "\nSkin: {}".format(self.skin)
         for s in self.stats:
             output += "\n{}:\t{}\tModifier: {}".format(s.name, s.ability_score, s.modifier)
         output += "\nSaving Throws:"
         for s in self.stats:
             output += "\n\t{}:\t{}".format(s.name, s.saving_throw)
         output += "\nSkills: {}, {}".format(self.prof1, self.prof2)
+        output += "\nWeapons: {}\t{}".format(self.weapon[0], self.weapon[1])
+        output += "\nArmor: {}".format(self.armor)
+        output += "\nArmor Class: {}".format(self.armor_class)
         print(output)
 
     def generate_stats(self):
