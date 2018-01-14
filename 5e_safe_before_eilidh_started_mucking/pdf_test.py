@@ -1,12 +1,12 @@
 import io
 from CharacterClass import *
-#import pdfrw
-#from reportlab.pdfgen import canvas
+import pdfrw
+from reportlab.pdfgen import canvas
 import os
 
 
 
-def run(c):
+def run():
     if os.path.isfile('merged.pdf'):
         os.remove('merged.pdf')
     canvas_data = get_overlay_canvas()
@@ -92,5 +92,4 @@ def save(form: io.BytesIO, filename: str):
         f.write(form.read())
 
 if __name__ == '__main__':
-
     run()

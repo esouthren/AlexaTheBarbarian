@@ -1,4 +1,6 @@
 import random
+import json
+import urllib.request
 
 
 class Stat:
