@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="db64fa16-5e06-42af-8be0-3566af2ec454" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/5eCharacter/.idea/5eCharacter.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/5eCharacter/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/5eCharacter/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/5eCharacter/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/alexa.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/api_call_Test.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/names.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/pypdftk.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/APICalls.py" afterPath="$PROJECT_DIR$/api_calls.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/CharacterClass.py" afterPath="$PROJECT_DIR$/character_class.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/UserCharacter.py" afterPath="$PROJECT_DIR$/user_character.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pdf_test.py" afterPath="$PROJECT_DIR$/populate_pdf.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/merged.pdf" afterPath="$PROJECT_DIR$/merged.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/APICalls.py" afterPath="$PROJECT_DIR$/APICalls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CharacterClass.py" afterPath="$PROJECT_DIR$/CharacterClass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UserCharacter.py" afterPath="$PROJECT_DIR$/UserCharacter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gui.py" afterPath="$PROJECT_DIR$/gui.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pdf_test.py" afterPath="$PROJECT_DIR$/pdf_test.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UserCharacter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UserCharacter.py">
+      <file leaf-file-name="user_character.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/user_character.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+            <state relative-caret-position="-1480">
+              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -33,8 +43,8 @@
       <file leaf-file-name="gui.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="294">
+              <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -42,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdf_test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pdf_test.py">
+      <file leaf-file-name="populate_pdf.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/populate_pdf.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+            <state relative-caret-position="-760">
+              <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -54,21 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pdfreader.py" pinned="false" current-in-tab="false">
-        <entry file="file://C:/Python/Lib/site-packages/pdfrw/pdfreader.py">
+      <file leaf-file-name="api_calls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api_calls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1755">
-              <caret line="571" column="56" lean-forward="false" selection-start-line="571" selection-start-column="56" selection-end-line="571" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="APICalls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/APICalls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="787">
-              <caret line="41" column="44" lean-forward="false" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+            <state relative-caret-position="228">
+              <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -76,24 +76,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CharacterClass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CharacterClass.py">
+      <file leaf-file-name="character_class.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/character_class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-534">
-              <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+            <state relative-caret-position="40">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pypdftk.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pypdftk.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4013">
-              <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="27" />
-              <folding>
-                <element signature="e#151#165#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -116,14 +104,20 @@
       <find>card_tit</find>
       <find>input</find>
       <find>hell</find>
-      <find>ab_bon</find>
       <find>skills_mod</find>
       <find>skills</find>
       <find>ab_b</find>
       <find>name</find>
-      <find>height</find>
       <find>real</find>
       <find>player_name</find>
+      <find>_bon</find>
+      <find>ab_bon</find>
+      <find>height</find>
+      <find>prof</find>
+      <find>run(</find>
+      <find>from</find>
+      <find>api_call</find>
+      <find>class_index</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -141,9 +135,12 @@
         <option value="$PROJECT_DIR$/names.txt" />
         <option value="$PROJECT_DIR$/APICalls.py" />
         <option value="$PROJECT_DIR$/CharacterClass.py" />
+        <option value="$PROJECT_DIR$/pdf_test.py" />
+        <option value="$PROJECT_DIR$/populate_pdf.py" />
         <option value="$PROJECT_DIR$/UserCharacter.py" />
         <option value="$PROJECT_DIR$/gui.py" />
-        <option value="$PROJECT_DIR$/pdf_test.py" />
+        <option value="$PROJECT_DIR$/user_character.py" />
+        <option value="$PROJECT_DIR$/api_calls.py" />
       </list>
     </option>
   </component>
@@ -237,7 +234,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="alexathebarbarian" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UserCharacter.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Eilidh Southren\Desktop\alexathebarbarian\user_character.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -305,7 +302,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="alexathebarbarian" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pdf_test.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Eilidh Southren\Desktop\alexathebarbarian\populate_pdf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -345,13 +342,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.090625" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.135" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.16375" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896462" sideWeight="0.4975" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.83625" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2372215" sideWeight="0.1825" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32896462" sideWeight="0.495" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2372215" sideWeight="0.8175" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -372,11 +368,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CharacterClass.py</url>
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
@@ -422,106 +413,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api_call_Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/CharacterClass.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-600">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/alexa.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="100" column="30" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="168" selection-end-column="5" />
-          <folding>
-            <element signature="e#330#367#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/names.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="6" selection-end-column="13" />
+        <state relative-caret-position="120">
+          <caret line="6" column="13" lean-forward="true" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/APICalls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="787">
-          <caret line="41" column="44" lean-forward="false" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pypdftk.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4013">
+        <state relative-caret-position="460">
           <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="27" />
-          <folding>
-            <element signature="e#151#165#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CharacterClass.py">
+    <entry file="file://$PROJECT_DIR$/alexa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-534">
-          <caret line="45" column="27" lean-forward="false" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+        <state relative-caret-position="2020">
+          <caret line="102" column="17" lean-forward="true" selection-start-line="102" selection-start-column="17" selection-end-line="102" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api_call_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/Python/Lib/site-packages/pdfrw/pdfreader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1755">
+        <state relative-caret-position="1560">
           <caret line="571" column="56" lean-forward="false" selection-start-line="571" selection-start-column="56" selection-end-line="571" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UserCharacter.py">
+    <entry file="file://$PROJECT_DIR$/populate_pdf.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+        <state relative-caret-position="-760">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/character_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gui.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="294">
+          <caret line="40" column="22" lean-forward="true" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pdf_test.py">
+    <entry file="file://$PROJECT_DIR$/api_calls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="41" lean-forward="false" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
+        <state relative-caret-position="228">
+          <caret line="16" column="23" lean-forward="true" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_character.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1480">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>

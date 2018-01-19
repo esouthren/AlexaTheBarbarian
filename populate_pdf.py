@@ -1,28 +1,21 @@
 import io
-
 import pdfrw
 from reportlab.pdfgen import canvas
-
 import os
 
-def run(c):
+
+def generate_pdf(c):
+
     if os.path.isfile('merged.pdf'):
         os.remove('merged.pdf')
+
     canvas_data = get_overlay_canvas(c)
     form = merge(canvas_data, template_path='./char_sheet_canvas.pdf')
     save(form, filename='merged.pdf')
     os.startfile('merged.pdf')
 
-    if os.path.isfile('merged2.pdf'):
-        os.remove('merged2.pdf')
-    canvas_data2 = get_overlay_canvas2(c)
-    form2 = merge(canvas_data2, template_path='./char_sheet_canvas2.pdf')
-    save(form2, filename='merged2.pdf')  
-    os.startfile('merged2.pdf')
-
 
 def get_overlay_canvas(c) -> io.BytesIO:
-    ##
 
     DEFAULT = 12
 
@@ -36,7 +29,7 @@ def get_overlay_canvas(c) -> io.BytesIO:
     speed = [355, 630]
     armor_class = [240, 630]
     initiative = [300, 630]
-    prof_bonus = [100, 605]
+    prof_bonus = [100, 610]
     hit_dice = [260, 465]
     pass_wisdom = [35, 191]
 

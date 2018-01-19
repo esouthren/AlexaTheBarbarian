@@ -40,6 +40,7 @@ class CharacterClass:
         self.armor_class = 0
         self.skills_mod = []
         self.ab_mod = []
+        self.ad_bon = []
         self.skills = []
 
 

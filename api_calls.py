@@ -1,6 +1,7 @@
 import json
 import urllib.request
 
+
 def get_data_from_url(url):
     # Give me a url, returns a nice JSON object of that data
     webURL = urllib.request.urlopen(url)
@@ -8,13 +9,20 @@ def get_data_from_url(url):
     encoding = webURL.info().get_content_charset('utf-8')
     return json.loads(data.decode(encoding))
 
-class API():
+
+class API:
+
     def __init__(self):
         self.classes = []
         self.races = []
         self.skills = []
         self.class_index = 0
         self.equipment = []
+
+        self.get_classes()
+        self.get_races()
+        self.get_skills()
+        self.get_equipment()
 
     def get_classes(self):
         classes_data = get_data_from_url("http://www.dnd5eapi.co/api/classes/")
